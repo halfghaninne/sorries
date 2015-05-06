@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Date:</b>
+  <%= @apology.date %>
+</p>
+
+<p>
+  <b>Gender:</b>
+  <%= @apology.gender %>
+</p>
+
+<p>
+  <b>Relationship:</b>
+  <%= @apology.relationship %>
+</p>
+
+<p>
+  <b>Was warranted:</b>
+  <%= @apology.was_warranted %>
+</p>
+
+<p>
+  <b>Could communicate differently:</b>
+  <%= @apology.could_communicate_differently %>
+</p>
+
+
+<%= link_to 'Edit', edit_apology_path(@apology) %> |
+<%= link_to 'Back', apologies_path %>

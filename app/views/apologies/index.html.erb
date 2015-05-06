@@ -1,0 +1,31 @@
+<h1>Listing apologies</h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Gender</th>
+    <th>Relationship</th>
+    <th>Was warranted</th>
+    <th>Could communicate differently</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @apologies.each do |apology| %>
+  <tr>
+    <td><%= apology.date %></td>
+    <td><%= apology.gender %></td>
+    <td><%= apology.relationship %></td>
+    <td><%= apology.was_warranted %></td>
+    <td><%= apology.could_communicate_differently %></td>
+    <td><%= link_to 'Show', apology %></td>
+    <td><%= link_to 'Edit', edit_apology_path(apology) %></td>
+    <td><%= link_to 'Destroy', apology, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Apology', new_apology_path %>

@@ -1,0 +1,37 @@
+<%= form_for(@apology) do |f| %>
+  <% if @apology.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@apology.errors.count, "error") %> prohibited this apology from being saved:</h2>
+
+      <ul>
+      <% @apology.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.datetime_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br />
+    <%= f.text_field :gender %>
+  </div>
+  <div class="field">
+    <%= f.label :relationship %><br />
+    <%= f.text_field :relationship %>
+  </div>
+  <div class="field">
+    <%= f.label :was_warranted %><br />
+    <%= f.check_box :was_warranted %>
+  </div>
+  <div class="field">
+    <%= f.label :could_communicate_differently %><br />
+    <%= f.check_box :could_communicate_differently %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

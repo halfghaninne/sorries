@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  date: 2015-05-05 21:04:12
+  gender: MyString
+  relationship: MyString
+  was_warranted: false
+  could_communicate_differently: false
+
+two:
+  date: 2015-05-05 21:04:12
+  gender: MyString
+  relationship: MyString
+  was_warranted: false
+  could_communicate_differently: false
