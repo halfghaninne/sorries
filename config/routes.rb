@@ -20,7 +20,7 @@ MongoTestApp::Application.routes.draw do
   
   # get "apologies/preview" => "apologies#preview", as: "preview_apology"
   
-  post "/" => "apologies#create"
+  post "apologies" => "apologies#create"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

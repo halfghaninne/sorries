@@ -6,11 +6,12 @@ class User
   
   field :username, type: String
   field :password, type: String
-  # key :username
+  field :_id, type: String, default: ->{ username } 
   validates_presence_of :username
   validates_presence_of :password
   
   has_many :apologies
+  accepts_nested_attributes_for :apologies
   
   attr_accessible :username, :password
   

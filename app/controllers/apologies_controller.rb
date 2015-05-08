@@ -4,10 +4,11 @@ class ApologiesController < ActionController::Base
   
   def validates_user
     if session[:user_id] !=nil
-      @user = User.find(id: session[:user_id])[0]
+      @user = User.find(session[:user_id])
     else
       flash[:message] = "Please log in or sign up to use the service."
       redirect_to controller: "application", action: "home"
+    end
   end
   
   def new
@@ -18,15 +19,14 @@ class ApologiesController < ActionController::Base
   # end
   
   def create
-    newApology = Apology.create(params[:apology])
+    newApology = @user.apologies.create!(params[:apology])
     
     flash[:message] = "Saved!"
     redirect_to controller: "application", action: "home"
   end
   
   def index
-    @apologies = Apology.where(user_id: @user.id)
-    #TODO check this syntax
+    @apologies = @user.apologies
   end
   
 end

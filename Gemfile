@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'pry'
+
 gem 'rails', '3.2.21'
 
 # Bundle edge Rails instead:

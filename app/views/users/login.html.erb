@@ -1,0 +1,18 @@
+<div>
+  
+	<div class="flash">
+		<%= flash[:message] %>
+	</div>
+  
+  <h2>Log In:</h2>
+  <br>
+
+  <%= form_for :user, url: {action: "find"}, method: "post" do |f| %>
+  	<%= f.label "username", "Username:" %>
+      <%= f.text_field("username") %><br><br>
+  	<%= f.label "password", "Password:" %>
+      <%= f.password_field("password") %><br><br>
+      <%= f.submit "Log In" %>
+  <% end %>
+  
+</div>

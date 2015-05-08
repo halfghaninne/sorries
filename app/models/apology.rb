@@ -9,7 +9,6 @@ class Apology
   field :could_communicate_differently, type: Boolean
   
   belongs_to :user
-  
-  attr_readonly :date
-  attr_accessible :gender, :relationship, :was_warranted, :could_communicate_differently
+
+  attr_accessible :date, :gender, :relationship, :was_warranted, :could_communicate_differently
 end
