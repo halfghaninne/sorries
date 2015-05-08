@@ -12,11 +12,13 @@ MongoTestApp::Application.routes.draw do
   
   get "users" => "users#logout", as: "user_logout"
   
-  get "users/:username" => "users#show", as: "user"
+  # get "users/:username" => "users#show", as: "user"
+  
+  get "apologies" => "apologies#index", as: "apologies"
   
   get "apologies/new" => "apologies#new", as: "new_apology"
   
-  get "apologies/preview" => "apologies#preview", as: "preview_apology"
+  # get "apologies/preview" => "apologies#preview", as: "preview_apology"
   
   post "/" => "apologies#create"
   
