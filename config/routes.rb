@@ -1,4 +1,25 @@
 MongoTestApp::Application.routes.draw do
+  
+  get "/" => "application#home", as: "home"
+  
+  get "users/new" => "users#new", as: "new_user"
+  
+  post "users" => "users#create"
+  
+  get "users/login" => "users#login", as: "user_login"
+  
+  post "users/find" => "users#find"
+  
+  get "users" => "users#logout", as: "user_logout"
+  
+  get "users/:username" => "users#show", as: "user"
+  
+  get "apologies/new" => "apologies#new", as: "new_apology"
+  
+  get "apologies/preview" => "apologies#preview", as: "preview_apology"
+  
+  post "/" => "apologies#create"
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

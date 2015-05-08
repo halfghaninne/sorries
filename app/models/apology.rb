@@ -1,8 +1,8 @@
-class User
+class Apology
   include Mongoid::Document
   include Mongoid::MultiParameterAttributes
   
-  field :date, type: Timestamp
+  field :date, type: Date
   field :gender, type: String
   field :relationship, type: String
   field :was_warranted, type: Boolean
