@@ -4,7 +4,8 @@
   
   <%= render :partial => '/shared/header' %>  
 
-  <% if @user %>
+  <div class="containter--partials">
+    <% if @user %>
 
     <div class="flash">
     <%= flash[:message] %>
@@ -17,10 +18,11 @@
       </ul>
     </div>
   
-  <% else %>
+    <% else %>
   
-    <%= render :partial => '/shared/about_statement' %>
+      <%= render :partial => '/shared/about_statement' %>
   
-  <% end %>
+    <% end %>
+  </div>
 
 </div>
