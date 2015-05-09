@@ -1,0 +1,47 @@
+.header {
+  background: #42B717;
+  height: 80px;
+  box-shadow: 0px 3px 5px #888888
+}
+
+.header--logo {
+  color: white;
+  margin: 0px;
+  padding-top: 19px;
+  display: inline-block;
+  float: left;
+}
+
+.header--nav_icon {
+  float: right;
+  margin: 0px;
+}
+
+.header--nav_icon a {
+  text-decoration: none;
+  color: white;
+}
+
+.header--nav_icon img {
+ -webkit-filter: invert(100%);  
+ height: 60px;
+ padding-top: 19px;
+}
+  
+body {
+
+}
+
+.flash {
+	font-style: bold;
+	color: red;
+}
+
+.about_statement {
+  border: 1px solid black;
+  margin-top: 75px;
+}
+
+.about_statement p {
+  margin: 16px 16px;
+}

@@ -1,40 +1,48 @@
-<div>
+<%= render :partial => '/shared/mobile_nav_slideout' %>
+
+<div class="container">
   
-  <%= form_for [@apology] do |f| %>
+<%= render :partial => '/shared/header' %>  
+
+  <div>
+  
+    <%= form_for [@apology] do |f| %>
     
-    <%= f.label :relationship, "What's your relationship to the person you were apologizing to? (ex: supervisor, superior, client, peer)" %><br>
-    <%= f.label :relationship, "That person was my __________ :" %><br><br>
-      <%= f.text_field :relationship %><br><br>
+      <%= f.label :relationship, "What's your relationship to the person you were apologizing to? (ex: supervisor, superior, client, peer)" %><br>
+      <%= f.label :relationship, "That person was my __________ :" %><br><br>
+        <%= f.text_field :relationship %><br><br>
     
-    <%= f.label :gender, "What was their gender?" %><br>
-      <%= f.radio_button :gender, "woman" %>
-        <%= f.label :gender, 'Woman', :value => "woman" %><br>
-      <%= f.radio_button :gender, "man" %>
-        <%= f.label :gender, 'Man', :value => "man" %><br>
-      <%= f.radio_button :gender, "trans" %>
-        <%= f.label :gender, 'Trans', :value => "trans" %><br>
-      <%= f.radio_button :gender, "genderqueer" %>
-        <%= f.label :gender, 'Genderqueer / Agender / Nonbinary', :value => "genderqueer" %><br>  
-      <%= f.radio_button :gender, "undetermined" %>
-        <%= f.label :gender, "I'm unsure", :value => "undetermined" %><br><br>
+      <%= f.label :gender, "What was their gender?" %><br>
+        <%= f.radio_button :gender, "woman" %>
+          <%= f.label :gender, 'Woman', :value => "woman" %><br>
+        <%= f.radio_button :gender, "man" %>
+          <%= f.label :gender, 'Man', :value => "man" %><br>
+        <%= f.radio_button :gender, "trans" %>
+          <%= f.label :gender, 'Trans', :value => "trans" %><br>
+        <%= f.radio_button :gender, "genderqueer" %>
+          <%= f.label :gender, 'Genderqueer / Agender / Nonbinary', :value => "genderqueer" %><br>  
+        <%= f.radio_button :gender, "undetermined" %>
+          <%= f.label :gender, "I'm unsure", :value => "undetermined" %><br><br>
     
-    <%= f.label :was_warranted, "Was an apology warranted?" %><br>
-      <%= f.radio_button :was_warranted, true %>
-        <%= f.label :was_warranted, 'Yes', :value => true %><br>
-      <%= f.radio_button :was_warranted, false %>
-        <%= f.label :was_warranted, 'No', :value => false %><br><br>
+      <%= f.label :was_warranted, "Was an apology warranted?" %><br>
+        <%= f.radio_button :was_warranted, true %>
+          <%= f.label :was_warranted, 'Yes', :value => true %><br>
+        <%= f.radio_button :was_warranted, false %>
+          <%= f.label :was_warranted, 'No', :value => false %><br><br>
       
-    <%= f.label :could_communicate_differently, "Could you have communicated your feelings/message differently?" %><br>
-      <%= f.radio_button :was_warranted, true %>
-        <%= f.label :was_warranted, 'Yes', :value => true %><br> 
-      <%= f.radio_button :was_warranted, false %>
-        <%= f.label :was_warranted, 'No', :value => false %><br><br>
+      <%= f.label :could_communicate_differently, "Could you have communicated your feelings/message differently?" %><br>
+        <%= f.radio_button :was_warranted, true %>
+          <%= f.label :was_warranted, 'Yes', :value => true %><br> 
+        <%= f.radio_button :was_warranted, false %>
+          <%= f.label :was_warranted, 'No', :value => false %><br><br>
 
-    <%= f.hidden_field(:date, value: Time.now) %>
-    <%= f.hidden_field(:user_id, value: @user.id) %> 
+      <%= f.hidden_field(:date, value: Time.now) %>
+      <%= f.hidden_field(:user_id, value: @user.id) %> 
      
-    <%= f.submit "Save" %>
+      <%= f.submit "Save" %>
     
-  <% end %>
+    <% end %>
 
+  </div>
+  
 </div>

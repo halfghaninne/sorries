@@ -1,20 +1,26 @@
-<div>
-  <ul>
-    <% if @user == nil %><li><%= link_to("Sign Up", new_user_path) %></li><% end %>
-    <% if @user == nil %><li><%= link_to("Log In", user_login_path) %></li><% end %>
-    <% if @user %><li><%= link_to("Log Out", user_logout_path) %></li><% end %>
-  </ul>
-</div>
+<%= render :partial => '/shared/mobile_nav_slideout' %>
 
-<% if @user %>
-	<div class="flash">
-		<%= flash[:message] %>
-	</div>
+<div class="container">
   
-  <div>
-    <ul>
-      <li><%= link_to("Log Apology", new_apology_path) %></li>
-      <li><%= link_to("See All", apologies_path) %></li>
-    </ul>
-  </div>
-<% end %>
+  <%= render :partial => '/shared/header' %>  
+
+  <% if @user %>
+
+    <div class="flash">
+    <%= flash[:message] %>
+    </div> 
+  
+    <div>
+      <ul>
+        <li><%= link_to("Log Apology", new_apology_path) %></li>
+        <li><%= link_to("See All", apologies_path) %></li>
+      </ul>
+    </div>
+  
+  <% else %>
+  
+    <%= render :partial => '/shared/about_statement' %>
+  
+  <% end %>
+
+</div>

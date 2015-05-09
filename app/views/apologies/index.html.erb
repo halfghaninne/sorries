@@ -1,3 +1,11 @@
-<% @apologies.each do |apology| %>
-<%= apology.date %><br>
-<% end %>
+<%= render :partial => '/shared/mobile_nav_slideout' %>
+
+<div class="container">
+  
+  <%= render :partial => '/shared/header' %>  
+
+  <% @apologies.each do |apology| %>
+  <%= apology.date %><br>
+  <% end %>
+
+</div>
