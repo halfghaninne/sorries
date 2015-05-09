@@ -1,4 +1,4 @@
-class ApologiesController < ActionController::Base
+class ApologiesController < ApplicationController
   
   before_filter :validates_user
   
