@@ -1,3 +1,7 @@
+.container {
+  display: block;
+}
+
 .header {
   background: #42B717;
   height: 80px;
@@ -27,7 +31,45 @@
  height: 60px;
  padding-top: 19px;
 }
-  
+
+.mobile_nav {
+  width: 160px;
+  background: grey; 
+  float: right;
+  height: 100%;
+}
+
+.mobile_nav ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+.mobile_nav a {
+  text-decoration: none;
+  color: white;
+  width: 100%;
+}
+
+.mobile_nav li {
+  list-style: none;
+  text-align: center;
+  width: 100%;
+  float: right;
+  display: inline-block;
+  padding: 20px;
+  border-bottom: 1px solid white;
+}
+
+.mobile_menu_is_shown {
+  display: block;
+}
+ 
+.is-mobile-nav-shown {
+   -webkit-transform: translateX(-160px);
+   transform: translateX(-160px);
+   transition: all 500ms ease;
+}
+
 body {
 
 }
