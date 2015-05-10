@@ -4,15 +4,16 @@
   
 <%= render :partial => '/shared/header' %>  
 
-  <div>
+  <div class="container--apology_form small-push-1">
   
     <%= form_for [@apology] do |f| %>
     
-      <%= f.label :relationship, "What's your relationship to the person you were apologizing to? (ex: supervisor, superior, client, peer)" %><br>
+      <%= f.label :relationship, "What's your relationship to the person you were apologizing to?" %><br>
+       <%= f.label :relationship, "(ex: supervisor, superior, client, peer)" %><br>
       <%= f.label :relationship, "That person was my __________ :" %><br><br>
         <%= f.text_field :relationship %><br><br>
     
-      <%= f.label :gender, "What was their gender?" %><br>
+      <%= f.label :gender, "What's their gender?" %><br>
         <%= f.radio_button :gender, "woman" %>
           <%= f.label :gender, 'Woman', :value => "woman" %><br>
         <%= f.radio_button :gender, "man" %>

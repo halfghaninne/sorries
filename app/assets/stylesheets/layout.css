@@ -15,9 +15,14 @@
 .header--logo {
   color: white;
   margin: 0px;
-  padding-top: 19px;
+  padding-top: 14px;
   display: inline-block;
   float: left;
+}
+
+.header--logo a {
+  text-decoration: none;
+  color: white;
 }
 
 .header--nav_icon {
@@ -25,10 +30,10 @@
   margin: 0px;
 }
 
-.header--nav_icon a {
+/*.header--nav_icon a {
   text-decoration: none;
   color: white;
-}
+}*/
 
 .header--nav_icon img {
  -webkit-filter: invert(100%);  
@@ -74,8 +79,28 @@
    transition: all 500ms ease;
 }
 
-body {
+.container--partials--user_options, 
+.container--apology_form, 
+.container--apologies {
+  margin-top: 50px;
+}
 
+.container--partials--user_options ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+
+.container--partials--user_options li {
+  list-style: none;
+  margin-bottom: 32px;
+}
+
+.container--partials--user_options a {
+  text-decoration: none;
+  color: black;
+  padding: 8px 8px;
+  border: 1px solid black;
 }
 
 .flash {

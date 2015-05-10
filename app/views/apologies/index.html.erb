@@ -3,9 +3,13 @@
 <div class="container">
   
   <%= render :partial => '/shared/header' %>  
+  
+  <div class="container--apologies small-push-1">
 
-  <% @apologies.each do |apology| %>
-  <%= apology.date %><br>
-  <% end %>
+    <% @apologies.each do |apology| %>
+    <%= apology.date %><br>
+    <% end %>
+  
+  </div>
 
 </div>

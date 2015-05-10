@@ -4,14 +4,13 @@
   
   <%= render :partial => '/shared/header' %>  
 
-  <div class="container--partials">
+  <div class="container--login_block small-push-1">
   
   	<div class="flash">
   		<%= flash[:message] %>
   	</div>
   
     <h2>Log In:</h2>
-    <br>
 
     <%= form_for :user, url: {action: "find"}, method: "post" do |f| %>
     	<%= f.label "username", "Username:" %>
