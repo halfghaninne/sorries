@@ -5,10 +5,24 @@
   <%= render :partial => '/shared/header' %>  
   
   <div class="container--apologies small-push-1">
-
-    <% @apologies.each do |apology| %>
-    <%= apology.date %><br>
-    <% end %>
+    
+    <div class="container--apologies--sample">
+      <% @apologies.each do |apology| %>
+      <%= apology.date %><br>
+      <% end %>
+    </div>
+    
+    <div class="container--apologies--count">
+    </div>
+    
+    <div class="container--apologies--gender">
+    </div>
+    
+    <div class="container--apologies--relationship">
+    </div>
+    
+    <div class="container--apologies--was_warranted">
+    </div>
   
   </div>
 

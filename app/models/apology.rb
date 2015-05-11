@@ -11,4 +11,5 @@ class Apology
   belongs_to :user
 
   attr_accessible :date, :gender, :relationship, :was_warranted, :could_communicate_differently
+  
 end

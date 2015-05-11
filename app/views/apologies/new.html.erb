@@ -25,18 +25,18 @@
         <%= f.radio_button :gender, "undetermined" %>
           <%= f.label :gender, "I'm unsure", :value => "undetermined" %><br><br>
     
+      <%= f.label :could_communicate_differently, "Could you have communicated your feelings/message differently?" %><br>
+        <%= f.radio_button :could_communicate_differently, true %>
+          <%= f.label :could_communicate_differently, 'Yes', :value => true %><br> 
+        <%= f.radio_button :could_communicate_differently, false %>
+          <%= f.label :could_communicate_differently, 'No', :value => false %><br><br>
+    
       <%= f.label :was_warranted, "Was an apology warranted?" %><br>
         <%= f.radio_button :was_warranted, true %>
           <%= f.label :was_warranted, 'Yes', :value => true %><br>
         <%= f.radio_button :was_warranted, false %>
           <%= f.label :was_warranted, 'No', :value => false %><br><br>
       
-      <%= f.label :could_communicate_differently, "Could you have communicated your feelings/message differently?" %><br>
-        <%= f.radio_button :was_warranted, true %>
-          <%= f.label :was_warranted, 'Yes', :value => true %><br> 
-        <%= f.radio_button :was_warranted, false %>
-          <%= f.label :was_warranted, 'No', :value => false %><br><br>
-
       <%= f.hidden_field(:date, value: Time.now) %>
       <%= f.hidden_field(:user_id, value: @user.id) %> 
      

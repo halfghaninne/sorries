@@ -26,6 +26,7 @@ class ApologiesController < ApplicationController
   end
   
   def index
+    # @test = Apology.where(user_id: @user.id)
     @apologies = @user.apologies
   end
   
