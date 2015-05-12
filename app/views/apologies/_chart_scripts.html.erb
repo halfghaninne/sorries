@@ -1,20 +1,14 @@
 <script type="text/javascript">
 
 window.addEventListener("load", function(){
-
-  if (document.getElementById("gender")) {
+  
+  function buildPieChart(chart_div){
     var w = 360;
     var h = 360;
     var r = Math.min(w, h) / 2;
     var color = d3.scale.category20c();
-    
-    var data = [{label: "MEN", value: <%= @user.apologies.where(gender: "man").count %>}, 
-            {label: "WOMEN", value: <%= @user.apologies.where(gender: "woman").count %>}, 
-            {label: "TRANS", value: <%= @user.apologies.where(gender: "trans").count %>}, 
-            {label: "GENDERQUEER", value: <%= @user.apologies.where(gender: "genderqueer").count %>}, 
-            {label: "UNDETERMINED", value: <%= @user.apologies.where(gender: "undetermined").count %>}];  
         
-    var svg = d3.select("#gender")
+    var svg = d3.select(chart_div)
         .append ("svg")
         .attr("width", w)
         .attr("height", h)
@@ -36,7 +30,7 @@ window.addEventListener("load", function(){
           return color(d.data.label);
         });
     
-    var tooltip = d3.select('#gender')
+    var tooltip = d3.select(chart_div)
       .append('div')
       .attr('class', 'tooltip'); 
 
@@ -63,8 +57,19 @@ window.addEventListener("load", function(){
     path.on('mouseout', function() {
       tooltip.style('display', 'none');
     });
+  }
+
+  if (document.getElementById("gender")) {
+    var data = [{label: "MEN", value: <%= @user.apologies.where(gender: "man").count %>}, 
+        {label: "WOMEN", value: <%= @user.apologies.where(gender: "woman").count %>}, 
+        {label: "TRANS", value: <%= @user.apologies.where(gender: "trans").count %>}, 
+        {label: "GENDERQUEER", value: <%= @user.apologies.where(gender: "genderqueer").count %>}, 
+        {label: "UNDETERMINED", value: <%= @user.apologies.where(gender: "undetermined").count %>}];  
         
+    var chart_div = "#gender"    
     
+    buildPieChart(chart_div);
+   
   };
 });
 </script>
