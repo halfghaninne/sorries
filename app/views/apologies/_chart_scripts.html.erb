@@ -8,11 +8,11 @@ window.addEventListener("load", function(){
     var r = Math.min(w, h) / 2;
     var color = d3.scale.category20c();
     
-    var data = [{label: "men", value: <%= @user.apologies.where(gender: "man").count %>}, 
-            {label: "women", value: <%= @user.apologies.where(gender: "woman").count %>}, 
-            {label: "trans", value: <%= @user.apologies.where(gender: "trans").count %>}, 
-            {label: "genderqueer", value: <%= @user.apologies.where(gender: "genderqueer").count %>}, 
-            {label: "undetermined", value: <%= @user.apologies.where(gender: "undetermined").count %>}];  
+    var data = [{label: "MEN", value: <%= @user.apologies.where(gender: "man").count %>}, 
+            {label: "WOMEN", value: <%= @user.apologies.where(gender: "woman").count %>}, 
+            {label: "TRANS", value: <%= @user.apologies.where(gender: "trans").count %>}, 
+            {label: "GENDERQUEER", value: <%= @user.apologies.where(gender: "genderqueer").count %>}, 
+            {label: "UNDETERMINED", value: <%= @user.apologies.where(gender: "undetermined").count %>}];  
         
     var svg = d3.select("#gender")
         .append ("svg")
@@ -35,6 +35,35 @@ window.addEventListener("load", function(){
         .attr('fill', function(d, i) {
           return color(d.data.label);
         });
+    
+    var tooltip = d3.select('#gender')
+      .append('div')
+      .attr('class', 'tooltip'); 
+
+    tooltip.append('div')
+      .attr('class', 'label');
+
+    tooltip.append('div')
+      .attr('class', 'count');
+
+    tooltip.append('div') 
+      .attr('class', 'percent');  
+            
+    path.on('mouseover', function(d) {
+      var total = d3.sum(data.map(function(d) {
+          return d.value;
+        }));
+      var percent = Math.round(1000 * d.data.value / total) / 10;
+      tooltip.select('.label').html(d.data.label);
+      tooltip.select('.value').html(d.data.value); 
+      tooltip.select('.percent').html(percent + '%'); 
+      tooltip.style('display', 'block');
+    });
+    
+    path.on('mouseout', function() {
+      tooltip.style('display', 'none');
+    });
+        
     
   };
 });
