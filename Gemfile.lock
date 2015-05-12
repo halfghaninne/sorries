@@ -125,6 +125,7 @@ DEPENDENCIES
   bson_ext
   coffee-rails (~> 3.2.1)
   jquery-rails
+  json (~> 1.8.2)
   mongoid
   pry
   rails (= 3.2.21)

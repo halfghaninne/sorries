@@ -1,0 +1,41 @@
+<script type="text/javascript">
+
+window.addEventListener("load", function(){
+
+  if (document.getElementById("gender")) {
+    var w = 360;
+    var h = 360;
+    var r = Math.min(w, h) / 2;
+    var color = d3.scale.category20c();
+    
+    var data = [{label: "men", value: <%= @user.apologies.where(gender: "man").count %>}, 
+            {label: "women", value: <%= @user.apologies.where(gender: "woman").count %>}, 
+            {label: "trans", value: <%= @user.apologies.where(gender: "trans").count %>}, 
+            {label: "genderqueer", value: <%= @user.apologies.where(gender: "genderqueer").count %>}, 
+            {label: "undetermined", value: <%= @user.apologies.where(gender: "undetermined").count %>}];  
+        
+    var svg = d3.select("#gender")
+        .append ("svg")
+        .attr("width", w)
+        .attr("height", h)
+        .append("g")
+        .attr("transform", 'translate(' + (w / 2) +  ',' + (h / 2) + ')');
+          
+    var arc = d3.svg.arc()
+          .outerRadius(r);
+          
+    var pie = d3.layout.pie()
+          .value(function(d) { return d.value; });
+          
+    var path = svg.selectAll('path')
+        .data(pie(data))
+        .enter()
+        .append('path')
+        .attr('d', arc)
+        .attr('fill', function(d, i) {
+          return color(d.data.label);
+        });
+    
+  };
+});
+</script>

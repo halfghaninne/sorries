@@ -11,6 +11,8 @@ gem 'bcrypt-ruby'
 gem "mongoid"
 gem "bson_ext"
 
+gem 'json', '~> 1.8.2'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

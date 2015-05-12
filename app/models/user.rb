@@ -1,5 +1,7 @@
 require 'bcrypt'
 
+require 'json'
+
 class User
   include Mongoid::Document
   include Mongoid::MultiParameterAttributes
@@ -32,11 +34,19 @@ class User
   #         {"label":"three", "value":30}];
   
   def gender_chart_data
-    @data = [{label: "men", value: self.apologies.where(gender: "man").count}, 
+    data = [{label: "men", value: self.apologies.where(gender: "man").count}, 
             {label: "women", value: self.apologies.where(gender: "woman").count}, 
             {label: "trans", value: self.apologies.where(gender: "trans").count}, 
             {label: "genderqueer", value: self.apologies.where(gender: "genderqueer").count}, 
             {label: "undetermined", value: self.apologies.where(gender: "undetermined").count}]
+    
+    @dataJSON = []
+           
+    data.each do |hash|
+      hash = hash.to_json
+      @dataJSON << hash
+    end
+    
   end
   
   def relationship_chart_data
