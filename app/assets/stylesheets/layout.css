@@ -90,7 +90,6 @@
   padding: 0px;
 }
 
-
 .container--partials--user_options li {
   list-style: none;
   margin-bottom: 32px;
@@ -132,6 +131,18 @@
 .about_statement {
   border: 1px solid black;
   margin-top: 75px;
+}
+
+.about_statement a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #1EA8C2;
+}
+
+.about_statement a:hover {
+  text-decoration: none;
+  font-weight: bold;
+  color: grey;
 }
 
 .about_statement p {
