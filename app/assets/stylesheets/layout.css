@@ -101,11 +101,32 @@
   color: black;
   padding: 8px 8px;
   border: 1px solid black;
+  border-radius: 8px;
+}
+
+.container--partials--user_options a:hover {
+  color: white;
+  background: black;
+}
+
+.submit_button {
+  text-decoration: none;
+  color: black;
+  background: white;
+  padding: 8px 8px;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+.submit_button:hover {
+  color: white;
+  background: black;
 }
 
 .flash {
 	font-style: bold;
 	color: red;
+  margin-bottom: 20px;
 }
 
 .about_statement {

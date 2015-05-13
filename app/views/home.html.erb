@@ -6,12 +6,13 @@
 
   <div class="container--partials">
     <% if @user %>
-
-    <div class="flash">
-    <%= flash[:message] %>
-    </div> 
   
     <div class="container--partials--user_options small-push-1">
+      
+      <div class="flash">
+      <%= flash[:message] %>
+      </div>
+      
       <ul>
         <li><%= link_to("LOG APOLOGY", new_apology_path) %></li>
         <li><%= link_to("SEE ALL", apologies_path) %></li>

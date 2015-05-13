@@ -8,23 +8,31 @@
   
   <div class="container--apologies small-push-1">
     
-    <div class="container--apologies--sample">
-      <% @apologies.each do |apology| %>
-      <%= apology.date %><br>
+    <h1>Viewing all info for <%= @user.username %><br>(<%= @apologies.count %> total)</h1>
+    <h4>Specific days logged:</h4>
+    <div class="container--apologies--dates">
+      <% @dates.each do |date| %>
+      <%= date.to_s[0..9] %><br>
       <% end %>
     </div>
     
-    <div class="container--apologies--count" id="count">
+    <div class="container--apologies--chart" id="count" display="none">
     </div>
     
-    <div class="container--apologies--gender" id="gender">
+    <div class="container--apologies--chart" id="gender">
       <h2>Genders of the people you've apologized to:</h2>
     </div>
     
-    <div class="container--apologies--relationship">
+    <div class="container--apologies--chart" id="relationship">
+      <h2>Your relationship to them:</h2>
     </div>
     
-    <div class="container--apologies--was_warranted">
+    <!-- <div class="container--apologies--chart" id="communicate_differently">
+      <h2>Could these apologies have been communicated differently?:</h2>
+    </div> -->
+    
+    <div class="container--apologies--chart" id="was_warranted">
+      <h2>How many apologies were warranted:</h2>
     </div>
   
   </div>

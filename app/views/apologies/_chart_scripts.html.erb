@@ -47,10 +47,11 @@ window.addEventListener("load", function(){
       var total = d3.sum(data.map(function(d) {
           return d.value;
         }));
+      var count = d.data.value;
       var percent = Math.round(1000 * d.data.value / total) / 10;
       tooltip.select('.label').html(d.data.label);
       tooltip.select('.value').html(d.data.value); 
-      tooltip.select('.percent').html(percent + '%'); 
+      tooltip.select('.percent').html(count + ' (or ' + percent + '%)'); 
       tooltip.style('display', 'block');
     });
     
@@ -60,16 +61,34 @@ window.addEventListener("load", function(){
   }
 
   if (document.getElementById("gender")) {
-    var data = [{label: "MEN", value: <%= @user.apologies.where(gender: "man").count %>}, 
-        {label: "WOMEN", value: <%= @user.apologies.where(gender: "woman").count %>}, 
-        {label: "TRANS", value: <%= @user.apologies.where(gender: "trans").count %>}, 
-        {label: "GENDERQUEER", value: <%= @user.apologies.where(gender: "genderqueer").count %>}, 
-        {label: "UNDETERMINED", value: <%= @user.apologies.where(gender: "undetermined").count %>}];  
+    var data = <%= raw(@user.gender_chart_data) %>
         
     var chart_div = "#gender"    
     
     buildPieChart(chart_div);
    
   };
+  
+  if (document.getElementById("relationship")) {
+    var data = <%= raw(@user.relationship_chart_data) %>
+    var chart_div = "#relationship"
+    
+    buildPieChart(chart_div);
+  };
+  
+  if (document.getElementById("was_warranted")) {
+    var data = <%= raw(@user.was_warranted_chart_data) %>
+    var chart_div = "#was_warranted"
+    
+    buildPieChart(chart_div);
+  };
+  
+  if (document.getElementById("communicate_differently")) {
+    var data = <%= raw(@user.communicate_differently_chart_data) %>
+    var chart_div = "#communicate_differently"
+    
+    buildPieChart(chart_div);
+  };
+  
 });
 </script>

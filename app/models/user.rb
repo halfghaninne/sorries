@@ -26,37 +26,43 @@ class User
   
   ########################### CHARTING METHODS ####################
   
-  # def count_chart_data
-  # end
-  
-  # data = [{"label":"one", "value":20},
-  #         {"label":"two", "value":50},
-  #         {"label":"three", "value":30}];
-  
   def gender_chart_data
-    data = [{label: "men", value: self.apologies.where(gender: "man").count}, 
-            {label: "women", value: self.apologies.where(gender: "woman").count}, 
-            {label: "trans", value: self.apologies.where(gender: "trans").count}, 
-            {label: "genderqueer", value: self.apologies.where(gender: "genderqueer").count}, 
-            {label: "undetermined", value: self.apologies.where(gender: "undetermined").count}]
+    data = [{label: "MEN", value: self.apologies.where(gender: "man").count}, 
+            {label: "WOMEN", value: self.apologies.where(gender: "woman").count}, 
+            {label: "TRANS", value: self.apologies.where(gender: "trans").count}, 
+            {label: "GENDERQUEER", value: self.apologies.where(gender: "genderqueer").count}, 
+            {label: "UNDETERMINED", value: self.apologies.where(gender: "undetermined").count}]
     
-    @dataJSON = []
-           
-    data.each do |hash|
-      hash = hash.to_json
-      @dataJSON << hash
-    end
-    
+    @data = data.to_json
   end
   
   def relationship_chart_data
+    labels_array = self.apologies.distinct(:relationship)
+    data = []
+    labels_array.each do |label|
+      value = self.apologies.where(relationship: label).count
+      data << {label: label.upcase, value: value}
+    end
+    
+    @data = data.to_json
+    
   end
+  
+  def communicate_differently_chart_data
+    data = [{label: "YES", value: self.apologies.where(could_communicate_differently: true).count},
+            {label: "NO", value: self.apologies.where(could_communicate_differently: false).count}]
+    
+    @data = data.to_json
+  end
+  
   
   def was_warranted_chart_data
+    data = [{label: "WARRANTED", value: self.apologies.where(was_warranted: true).count},
+            {label: "NOT", value: self.apologies.where(was_warranted: false).count}]
+    
+    @data = data.to_json
   end
-  
-  # def communicate_chart_data
-  # end
+
   
   
 end

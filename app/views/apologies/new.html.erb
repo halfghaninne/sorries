@@ -5,6 +5,10 @@
 <%= render :partial => '/shared/header' %>  
 
   <div class="container--apology_form small-push-1">
+    
+    <div class="flash">
+    <%= flash[:message] %>
+    </div>
   
     <%= form_for [@apology] do |f| %>
     
@@ -40,7 +44,7 @@
       <%= f.hidden_field(:date, value: Time.now) %>
       <%= f.hidden_field(:user_id, value: @user.id) %> 
      
-      <%= f.submit "Save" %>
+      <%= f.submit "SAVE", :class => 'submit_button' %>
     
     <% end %>
 
