@@ -13,6 +13,10 @@ gem "bson_ext"
 
 gem 'json', '~> 1.8.2'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
