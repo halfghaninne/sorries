@@ -78,15 +78,13 @@ test:
         # low amounts for fast failures.
         max_retries: 1
         retry_interval: 0
+      
 
 production:
   sessions:
     default:
-      host: <%= ENV['MONGOLAB_HOST'] %>
-      port: <%= ENV['MONGOLAB_PORT'] %>
-      username: <%= ENV['MONGOLAB_USERNAME'] %>
-      password: <%= ENV['MONGOLAB_PASSWORD'] %>
-      database: <%= ENV['MONGOLAB_DATABASE'] %>
+      uri: <%= ENV['MONGOLAB_URI'] %>
       options:
+        consistency: :strong
         safe: true
         skip_version_check: true
