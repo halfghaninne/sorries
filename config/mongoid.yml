@@ -82,7 +82,6 @@ test:
 production:
   sessions:
     default:
-      uri: <%= ENV['MONGOLAB_URI'] %>
       host: <%= ENV['MONGOLAB_HOST'] %>
       port: <%= ENV['MONGOLAB_PORT'] %>
       username: <%= ENV['MONGOLAB_USERNAME'] %>
